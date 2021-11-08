@@ -25,20 +25,21 @@ int _printf(char *format, ...)
 			buffer[print_len] = format[i]; /** pasa el string al bufer*/
 			print_len += 1;
 		}
-		else
+		else /**cuando encuentra %*/
 		{
-			f = struct_funct(&(format[i + 1])); /**encuentra % y se fija el siguiente caracter */
-			if (f != NULL)
+			if (format[i + 1])
 			{
-				print_len = f(argum, &buffer[print_len], print_len); /** encontro match*/
-				i++;
-			}
-			else
-			{
-				buffer[print_len] = format[i];/**si % y no match*/
-				print_len += 1;
-				buffer[print_len] = format[i + 1];
-				print_len += 1;
+				f = struct_funct(&(format[i + 1])); /**encuentra % y se fija el siguiente caracter */
+				if (f != NULL)
+				{
+					print_len = f(argum, &buffer[print_len], print_len); /** encontro match y mando a buffer y aumenta longitud*/
+					i++;
+				}
+				if (f == NULL)/*if % but no match for next char*/
+				{
+					print_len = print_porc(argum, &buffer[print_len], print_len);
+					un_known(&format[i + 1], &buffer[print_len], print_len);
+				}
 			}
 		}
 		i++;

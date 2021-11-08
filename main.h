@@ -6,9 +6,9 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- *printgm - Struct para comparar con los argumentos que nos pasan
- *@type: :DDDDDDD
- *@f: The function associated
+ *printgm - Struct - list to validates printing formats
+ *@type: possible formats
+ *@f: function associated at specified format
  */
 typedef struct printgm
 {
@@ -26,4 +26,5 @@ char *_strcpy(char *dest, char *src);
 int _putchar(char c);
 int paste(char *buffer, char* s, int print_len);
 int main(void);
+int un_known(char *s, char *buff, int print_len);
 #endif

@@ -1,7 +1,7 @@
 #include "main.h"
 /**
 *struct_funct - match s with struct y devuelve la funcion a utliziar
-*@s: argument pased
+*@s: no sasbes aun
 *Return: pointer to fuction
 */
 int (*struct_funct(char *s))(va_list, char *, int)
@@ -14,16 +14,13 @@ int (*struct_funct(char *s))(va_list, char *, int)
 	};
 	int i = 0;
 
-	while (i < 4)
+	while (frmt[i].type)
 	{
 		if (*s == *(frmt[i]).type)/** machea lo recibido con el struct*/
 		{
 			return (frmt[i].f); /**retorna la funcion que se debee utilizar*/
 		}
-		else/** si no machea con nada poner %? en el buffer. s y s-1 del format*/
-
-
-	i++;
+		i++;
 	}
-	return (NULL);
+	return (0);
 }
