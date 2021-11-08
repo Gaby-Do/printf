@@ -12,18 +12,14 @@ int print_char(va_list argum, char *buff, int print_len)
 {
 	char *c;
 
-	if (argum)
-	{
-		c = malloc((sizeof(char) + 1)); /**pide memoria para c*/
-		if (c == NULL) /**verifica que se le dio memoria*/
-			return (-1);
-		c[0] = va_arg(argum, int); /**ponemos el character*/
-		c[1] = '\0';
-		print_len = paste(buff, c, print_len);/**concatenates string*/
-		free(c);
-		return (print_len);
-	}
-	return (-1);
+	c = malloc((sizeof(char) + 1)); /**pide memoria para c*/
+	if (c == NULL) /**verifica que se le dio memoria*/
+		return (-1);
+	c[0] = va_arg(argum, int); /**ponemos el character*/
+	c[1] = '\0';
+	print_len = paste(buff, c, print_len);/**concatenates string*/
+	free(c);
+	return (print_len);
 }
 
 /**
