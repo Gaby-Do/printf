@@ -43,7 +43,5 @@ int _printf(char *format, ...)
 	}
 	write(1, buffer, print_len);
 	va_end(argum);
-	if (format[i - 2] != '%' && format[i - 1] == '%' && format[i] == '\0')
-		return (-1);
 	return (print_len);
 }
