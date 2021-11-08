@@ -4,7 +4,6 @@
  *@format: String to print
  *Return: number of characters printed
  */
-
 int _printf(char *format, ...)
 {
 	int i = 0;
@@ -15,7 +14,6 @@ int _printf(char *format, ...)
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);/**check for format and if it´s only %*/
-
 	va_start(argum, format);
 	while (format && format[i]) /**recorre format mientras exista*/
 	{
@@ -45,5 +43,7 @@ int _printf(char *format, ...)
 	}
 	write(1, buffer, print_len);
 	va_end(argum);
+	if (format[i - 2] != '%' && format[i - 1] == '%' && format[i] == '\0')
+		return (-1);
 	return (print_len);
 }
