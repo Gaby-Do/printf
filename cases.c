@@ -58,13 +58,7 @@ char *buff, int print_len)
 {
 	char *c = "%";
 
-/*	c = malloc((sizeof(char) + 1)); **requests memory for c*/
-/*	if (c == NULL)
-		return (-1);	**check malloc ok*/
-/*	c = '%'; **initialize string*/
-/*	c[1] = '\0';*/
 	print_len = paste(buff, c, print_len);/**send string to buffer*/
-/*	free(c);*/
 	return (print_len);
 }
 /**
