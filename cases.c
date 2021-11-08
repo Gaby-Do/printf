@@ -36,15 +36,19 @@ int print_str(va_list argum, char *buff, int print_len)
 	char *str_aux;
 	int s_len;
 
-	str_aux = va_arg(argum, char *); /** paso todo a aux*/
-	s_len = _strlen(str_aux);	/**mido tamaño de aux*/
-	s = malloc((sizeof(char) * s_len) + 1); /**request memory space for s*/
-	if (s == NULL)		/*check if malloc ok*/
-		return (-1);
-	_strcpy(s, str_aux);	/**add str_aux into s*/
-	print_len = paste(buff, s, print_len);
-	free(s);
-	return (print_len);
+	if (argum)
+	{
+		str_aux = va_arg(argum, char *); /** paso todo a aux*/
+		s_len = _strlen(str_aux);	/**mido tamaño de aux*/
+		s = malloc((sizeof(char) * s_len) + 1); /**request memory space for s*/
+		if (s == NULL)		/*check if malloc ok*/
+			return (-1);
+		_strcpy(s, str_aux);	/**add str_aux into s*/
+		print_len = paste(buff, s, print_len);
+		free(s);
+		return (print_len);
+	}
+	return (-1);
 }
 /**
 *print_porc - prints % when %%

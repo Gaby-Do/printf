@@ -17,9 +17,9 @@ int _printf(char *format, ...)
 		return (-1);/**check for format and if it´s only %*/
 
 	va_start(argum, format);
-	while (format && format[i]) /**se mueve por format mientras exista*/
+	while (format && format[i]) /**recorre format mientras exista*/
 	{
-		if (format[i] != '%') /**busca un %en format*/
+		if (format[i] != '%') /**busca % en format*/
 		{
 			buffer[print_len] = format[i]; /** pasa el string al bufer*/
 			print_len += 1;

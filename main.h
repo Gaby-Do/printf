@@ -25,6 +25,5 @@ int (*struct_funct(char *arg))(va_list, char *, int);
 char *_strcpy(char *dest, char *src);
 int _putchar(char c);
 int paste(char *buffer, char *s, int print_len);
-int main(void);
 int un_known(char *s, char *buff, int print_len);
 #endif

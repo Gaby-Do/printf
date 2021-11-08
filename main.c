@@ -3,11 +3,11 @@
 #include "main.h"
 
 /**
- * main2 - Entry point
+ * main - Entry point
  *
  * Return: Always 0
  */
-int main2(void)
+int main(void)
 {
     int c;
 
@@ -27,5 +27,7 @@ int main2(void)
   printf("printf - tiengo doble porcentaje [%%]\n");
   _printf("tengo doble porcentaje [%%]\n");
   _printf("hola no me reconocen [%r]abc\n");
+   printf("no tengo string: [%s]\n", "");
+   _printf("no tengo string: [%s]\n", "");
   return (c);
 }
