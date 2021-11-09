@@ -1,0 +1,78 @@
+# cat /root/printf/man_3_printf.1
+." Process this file with" groff -man -Tascii man_3_printf
+."
+.TH man_3_printf.1
+
+.Sh NAME
+.B _printf
+- small printf wannabe
+
+.SH SYNOPSIS
+.B _printf
+
+.RB int printf(const char *restrict format, ...);
+
+.SH DESCRIPTION
+.B _printf
+.PP
+The functions _printf produce output according to a format as described below. It writes output to stdout. More information on the tasks performed is explained below:
+The functions writes the output under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output.
+
+.RS
+.nf
+.RE
+
+
+.SH CONVERSION SPECIFIERS
+.TP
+.B c - 
+.PP
+The argument must be a char. For example the out put for _printf("%c", 'H') would be H.
+
+.TP
+.B s - 
+.PP
+The argument must be a string. For example the out put for _printf("%s", "Hello") would be Hello.
+
+.TP
+.B d, i - 
+.PP
+For printing a decimal or an integer. The int argument is converted to signed decimal notation.
+
+.TP
+.B o, u, x, X - 
+.PP
+The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X) notation.  The letters abcdef are used for x conversions; the letters ABCDEF are used for X conversions. 
+
+
+.SH FORMAT OF THE FORMAT STRING
+.IP
+.PP
+The format string is a character string, beginning and ending in its initial shift state, if any.  The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments.  Each conversion specification is introduced by the character %, and ends with a conversion specifier.  (WORK IN PROGRESS: In between there may be (in this order) zero or more flags, an optional minimum field width, an optional precision and an optional length modifier.)
+The overall syntax of a conversion specification is:
+
+%[$][flags][width][.precision][length modifier]conversion
+
+
+.SH EXIT STATUS
+.TP
+.B
+Success - Upon successful return, this functions returns the number of characters printed (excluding the null byte used to end output to strings).
+
+.TP
+.B
+Error - If an output error is encountered, a negative value is returned.
+
+
+.SH SEE ALSO
+.BR 
+
+.SH COPYRIGHT
+.PP
+Copyright 2021 @Matias Lopez @Gabriela Dominguez. All rights reserved
+
+.SH CREDITS
+.PP
+This man page is created only as a school project for Holberton School.
+
+
