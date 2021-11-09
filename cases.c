@@ -12,6 +12,8 @@ int print_char(va_list argum, char *buff, int print_len)
 {
 	char *c;
 
+	if (!argum)
+		return (0);
 	c = malloc((sizeof(char) + 1)); /**pide memoria para c*/
 	if (c == NULL) /**verifica que se le dio memoria*/
 		return (-1);
@@ -36,19 +38,17 @@ int print_str(va_list argum, char *buff, int print_len)
 	char *str_aux;
 	int s_len;
 
-	if (argum)
-	{
-		str_aux = va_arg(argum, char *); /** paso todo a aux*/
-		s_len = _strlen(str_aux);	/**mido tamaño de aux*/
-		s = malloc((sizeof(char) * s_len) + 1); /**request memory space for s*/
-		if (s == NULL)		/*check if malloc ok*/
-			return (-1);
-		_strcpy(s, str_aux);	/**add str_aux into s*/
-		print_len = paste(buff, s, print_len);
-		free(s);
-		return (print_len);
-	}
-	return (-1);
+	if (!argum)
+		return (0);
+	str_aux = va_arg(argum, char *); /** paso todo a aux*/
+	s_len = _strlen(str_aux);	/**mido tamaño de aux*/
+	s = malloc((sizeof(char) * s_len) + 1); /**request memory space for s*/
+	if (s == NULL)		/*check if malloc ok*/
+		return (-1);
+	_strcpy(s, str_aux);	/**add str_aux into s*/
+	print_len = paste(buff, s, print_len);
+	free(s);
+	return (print_len);
 }
 /**
 *print_porc - prints % when %%
