@@ -17,6 +17,10 @@ typedef struct printgm
 	    int (*f)(va_list n, char *buff, int print_len);
 } printgm_t;
 
+int dec_to_oct(va_list argum, char *buff, int print_len);
+char rev_string(char *s);
+int dec_to_X(va_list argum, char *buff, int print_len);
+int dec_to_x(va_list argum, char *buff, int print_len);
 int int_to_bi(va_list, char *, int);
 int _printf(char *format, ...);
 int print_char(va_list, char *, int);
