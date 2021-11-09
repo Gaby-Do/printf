@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  *_strlen - returns the long of a string.
  *@s: Pointer to string

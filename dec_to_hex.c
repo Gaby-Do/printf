@@ -1,14 +1,14 @@
 #include "main.h"
 /**
- * int_to_bi - converts from integer to binary
+ * dec_to_x - converts from decimal to hexa
  * @argum: number received to convert
  * @buff: buffer
  * @print_len: size of buff
  * Return: int
  */
-int dec_to_X(va_list argum, char *buff, int print_len)
+int dec_to_x(va_list argum, char *buff, int print_len)
 {
-	long int n; x = 0;
+	long int n, x = 0;
 	int i = 0;
 	char *s;
 
@@ -27,22 +27,21 @@ int dec_to_X(va_list argum, char *buff, int print_len)
 		i++;
 	}
 	s[i] = '\0';
-	*s = rev_string(s);
+	*s = rev_str(s);
 	print_len = paste(buff, s, print_len);
 	free(s);
 	return (print_len);
 }
 /**
-    3  * int_to_bi - converts from integer to binary
-    4  * @argum: number received to convert
-    5  * @buff: buffer
-    6  * @print_len: size of buff
-    7  * Return: int
-    8  */
---  9 
-int dec_to_X(va_list argum, char *buff, int print_len)
+* dec_to_HEX - converts from decimal to HEXA (caps)
+* @argum: number received to convert
+* @buff: buffer
+* @print_len: lenght of buff to be writen
+* Return: int
+*/
+int dec_to_HEX(va_list argum, char *buff, int print_len)
 {
-	long int n; x = 0;
+	long int n, x = 0;
 	int i = 0;
 	char *s;
 
@@ -61,7 +60,7 @@ int dec_to_X(va_list argum, char *buff, int print_len)
 		i++;
 	}
 	s[i] = '\0';
-	*s = rev_string(s);
+	*s = rev_str(s);
 	print_len = paste(buff, s, print_len);
 	free(s);
 	return (print_len);

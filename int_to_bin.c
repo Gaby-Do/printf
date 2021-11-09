@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- * rev_string - reverses a string
+ * rev_str - reverses a string
  *
  * Description: reverses a string
  *
  * @s: pointer
  * Return: return a sting
  */
-char rev_string(char *s)
+char rev_str(char *s)
 {
 	int l = 0;
 	char aux;
@@ -61,7 +61,7 @@ int int_to_bi(va_list argum, char *buff, int print_len)
 	s[i] = n % 2 + '0';
 	i++;
 	s[i] = '\0';
-	*s = rev_string(s);
+	*s = rev_str(s);
 	print_len = paste(buff, s, print_len);
 	free(s);
 	return (print_len);
