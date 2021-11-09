@@ -8,7 +8,7 @@
 */
 int print_d(va_list argum, char *buff, int print_len)
 {
-	int count = 0, i, flag = 0, num2, num = va_arg(argum, int);
+	long int count = 0, i, flag = 0, num2, num = va_arg(argum, int);
 	char *s;
 
 	if (num < 0)
