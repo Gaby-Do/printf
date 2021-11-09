@@ -13,6 +13,9 @@ int (*struct_funct(char *s))(va_list, char *, int)
 		{"d", print_d},
 		{"i", print_d},
 		{"b", int_to_bi},
+		{"x", dec_to_x},
+		{"X", dec_to_X},
+		{"o", dec_to_oct},
 		{NULL, NULL}
 	};
 	int i = 0;
