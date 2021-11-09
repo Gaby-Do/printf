@@ -16,10 +16,13 @@ typedef struct printgm
 	    int (*f)(va_list n, char *buff, int print_len);
 } printgm_t;
 
+char int_to_str(int);
 int _printf(char *format, ...);
 int print_char(va_list, char *, int);
 int print_str(va_list, char *, int);
 int print_porc(va_list, char *, int);
+int print_d(va_list, char *, int);
+int print_i(va_list, char *, int);
 int _strlen(char *s);
 int (*struct_funct(char *arg))(va_list, char *, int);
 char *_strcpy(char *dest, char *src);

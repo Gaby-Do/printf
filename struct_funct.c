@@ -10,6 +10,8 @@ int (*struct_funct(char *s))(va_list, char *, int)
 		{"c", print_char},
 		{"s", print_str},
 		{"%", print_porc},
+		{"d", print_d},
+		{"i", print_i},
 		{NULL, NULL}
 	};
 	int i = 0;
