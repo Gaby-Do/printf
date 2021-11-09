@@ -1,12 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "main.h"
 /**
  * rev_string - reverses a string
  *
  * Description: reverses a string
  *
  * @s: pointer
+ * Return: return a sting
  */
 char rev_string(char *s)
 {
@@ -37,30 +36,33 @@ char rev_string(char *s)
 
 
 /**
- * int_to_bin - converts from integer to binary
- * @num: number received to convert
+ * int_to_bi - converts from integer to binary
+ * @argum: number received to convert
+ * @buff: buffer
+ * @print_len: size of buff
  * Return: int
  */
-int main(void)
+int int_to_bi(va_list argum, char *buff, int print_len)
 {
-	int n = 146;
+	long int n;
 	int i = 0;
 	char *s;
 
+	n = va_arg(argum, int);
 	s = malloc(sizeof(char) * 15);
 	if (!s)
 		return (1);
-	while (n / 10 > 0)
+	while (n / 2 > 0)
 	{
-		s[i] = n % 10 + '0';
-		n = n / 10;
+		s[i] = n % 2 + '0';
+		n = n / 2;
 		i++;
 	}
-	s[i] = n % 10 + '0';
+	s[i] = n % 2 + '0';
 	i++;
 	s[i] = '\0';
 	*s = rev_string(s);
-	write(1, s, i);
+	print_len = paste(buff, s, print_len);
 	free(s);
-	return (0);
+	return (print_len);
 }
