@@ -6,11 +6,10 @@
  */
 int _printf(char *format, ...)
 {
-	int i = 0;
+	int i = 0, (*f)(va_list, char *, int);
 	size_t print_len = 0;
 	va_list argum;
 	char buffer[1024];
-	int (*f)(va_list, char *, int);
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);/**check for format and if it´s only %*/
@@ -24,6 +23,11 @@ int _printf(char *format, ...)
 		}
 		else /**when %*/
 		{
+			if (format[i] == '%' && format[i + 1] == '\0')
+			{
+				write(1, buffer, print_len);
+				return (-1);
+			}
 			if (format[i + 1]) /**when % looks at next char*/
 			{
 				f = struct_funct(&(format[i + 1]));
@@ -43,7 +47,5 @@ int _printf(char *format, ...)
 	}
 	write(1, buffer, print_len);
 	va_end(argum);
-	if ((format[print_len - 1] == '%' && format[print_len] == '%' || format[print_len -1] == ()
-		return (-1);
 	return (print_len);
 }

@@ -1,5 +1,6 @@
 #ifndef _HEADER_
 #define _HEADER_
+#define BUFFER (1024)
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -16,6 +17,7 @@ typedef struct printgm
 	    int (*f)(va_list n, char *buff, int print_len);
 } printgm_t;
 
+int int_to_bi(va_list, char *, int);
 int _printf(char *format, ...);
 int print_char(va_list, char *, int);
 int print_str(va_list, char *, int);
