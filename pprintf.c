@@ -43,5 +43,7 @@ int _printf(char *format, ...)
 	}
 	write(1, buffer, print_len);
 	va_end(argum);
+	if ((format[print_len - 1] == '%' && format[print_len] == '%' || format[print_len -1] == ()
+		return (-1);
 	return (print_len);
 }
