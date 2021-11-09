@@ -12,12 +12,14 @@ int print_char(va_list argum, char *buff, int print_len)
 {
 	char *c;
 
+	if (!argum)
+		return (0);
 	c = malloc((sizeof(char) + 1)); /**pide memoria para c*/
 	if (c == NULL) /**verifica que se le dio memoria*/
-		return (1);
+		return (-1);
 	c[0] = va_arg(argum, int); /**ponemos el character*/
 	c[1] = '\0';
-	print_len = paste(buff, c, print_len);/**call paste para que pegue la cadena*/
+	print_len = paste(buff, c, print_len);/**concatenates string*/
 	free(c);
 	return (print_len);
 }
@@ -33,15 +35,20 @@ int print_char(va_list argum, char *buff, int print_len)
 int print_str(va_list argum, char *buff, int print_len)
 {
 	char *s;
-	char *aux;
+	char *str_aux;
 	int s_len;
 
-	aux = va_arg(argum, char *); /** paso todo a aux*/
-	s_len = _strlen(aux);	/**mido tamaño de aux*/
-	s = malloc((sizeof(char) * s_len) + 1); /**pido memoria para que todo entre en s*/
-	if (s == NULL)		/**compruebo que se dio memoria*/
-		return (1);
-	_strcpy(s, aux);	/**copio lo de aux en s*/
+	str_aux = va_arg(argum, char *);
+	if (!str_aux)
+	{
+		str_aux = "(null)";
+	}
+	/**str_aux = va_arg(argum, char *); **paso todo a aux*/
+	s_len = _strlen(str_aux);	/**mido tamaño de aux*/
+	s = malloc((sizeof(char) * s_len) + 1); /**request memory space for s*/
+	if (s == NULL)		/*check if malloc ok*/
+	return (-1);
+	_strcpy(s, str_aux);	/**add str_aux into s*/
 	print_len = paste(buff, s, print_len);
 	free(s);
 	return (print_len);
@@ -56,14 +63,20 @@ int print_str(va_list argum, char *buff, int print_len)
 int print_porc(__attribute__((unused)) va_list argum,
 char *buff, int print_len)
 {
-	char *c;
+	char *c = "%";
 
-	c = malloc((sizeof(char) + 1)); /**pide memoria para c*/
-	if (c == NULL)
-		return (1);	/**verifica que se le dio memoria*/
-	c[0] = '%'; /**ponemos el character*/
-	c[1] = '\0';
-	print_len = paste(buff, c, print_len);/**call paste para que pegue la cadena*/
-	free(c);
+	print_len = paste(buff, c, print_len);/**send string to buffer*/
+	return (print_len);
+}
+/**
+ * un_known - send unknown char after % to buffer
+ * @s: char after %
+ * @buff: where we store the string
+ * @print_len: string lenght
+ * Return: print_len
+ */
+int un_known(char *s, char *buff, int print_len)
+{
+	print_len = paste(buff, s, print_len);/**send string to buffer*/
 	return (print_len);
 }

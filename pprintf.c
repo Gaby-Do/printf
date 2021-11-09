@@ -2,9 +2,8 @@
 /**
  *_printf - function for printf project
  *@format: String to print
- *Return: larg of string finally
+ *Return: number of characters printed
  */
-
 int _printf(char *format, ...)
 {
 	int i = 0;
@@ -13,37 +12,38 @@ int _printf(char *format, ...)
 	char buffer[1024];
 	int (*f)(va_list, char *, int);
 
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))/**ve si format existe,*/
-							/**o si solamente tiene un %*/
-		return (-1);
-
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);/**check for format and if it´s only %*/
 	va_start(argum, format);
-	while (format && format[i]) /**se mueve por format mientras exista*/
+	while (format && format[i]) /**recorre format mientras exista*/
 	{
-		if (format[i] != '%') /**busca un %en format*/
+		if (format[i] != '%') /**busca % en format*/
 		{
 			buffer[print_len] = format[i]; /** pasa el string al bufer*/
 			print_len += 1;
 		}
-		else
+		else /**when %*/
 		{
-			f = struct_funct(&(format[i + 1])); /**encuentra % y se fija el siguiente caracter */
-			if (f != NULL)
+			if (format[i + 1]) /**when % looks at next char*/
 			{
-				print_len = f(argum, &buffer[print_len], print_len); /** encontro match*/
-				i++;
-			}
-			else
-			{
-				buffer[print_len] = format[i];/**si % y no match*/
-				print_len += 1;
-				buffer[print_len] = format[i + 1];
-				print_len += 1;
+				f = struct_funct(&(format[i + 1]));
+				if (f != NULL)/** found match, sent to buffer, lenght++*/
+				{
+					print_len = f(argum, &buffer[print_len], print_len);
+					i++;
+				}
+				if (f == NULL)/*if % but no match for next char*/
+				{
+					print_len = print_porc(argum, &buffer[print_len], print_len);
+					un_known(&format[i + 1], &buffer[print_len], print_len);
+				}
 			}
 		}
 		i++;
 	}
 	write(1, buffer, print_len);
 	va_end(argum);
+	if ((format[print_len - 1] == '%' && format[print_len] == '%' || format[print_len -1] == ()
+		return (-1);
 	return (print_len);
 }
