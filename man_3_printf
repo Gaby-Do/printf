@@ -39,6 +39,8 @@ The argument must be a string. For example the out put for _printf("%s", "Hello"
 .PP
 For printing a decimal or an integer. The int argument is converted to signed decimal notation.
 
+
+
 .TP
 .B o, u, x, X - 
 .PP
@@ -74,5 +76,4 @@ Copyright 2021 @Matias Lopez @Gabriela Dominguez. All rights reserved
 .SH CREDITS
 .PP
 This man page is created only as a school project for Holberton School.
-
 
