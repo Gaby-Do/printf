@@ -11,7 +11,7 @@ int (*struct_funct(char *s))(va_list, char *, int)
 		{"s", print_str},
 		{"%", print_porc},
 		{"d", print_d},
-		{"i", print_i},
+		{"i", print_d},
 		{NULL, NULL}
 	};
 	int i = 0;

@@ -38,29 +38,3 @@ char *_strcpy(char *dest, char *src)
 		*(dest + i) = *(src + i);
 	return (dest);
 }
-/**
- *
- *
- */
-char int_to_str(int n)
-{
-	int count = 0;
-	int num = n;
-	int i;
-	char *s;
-
-	while (num > 10)
-	{
-		num = num / 10;
-		count++;
-	}
-	s = malloc(count + 1);
-	if (!s)
-		return (-1);
-	for (i = (count - 1); i >= 0; i--)
-	{
-		s[i] = (num % 10 + '0');
-		num = num / 10;
-	}
-	return (0);
-}
