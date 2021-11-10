@@ -6,7 +6,7 @@
  */
 int _printf(char *format, ...)
 {
-	int i = 0, (*f)(va_list, char *, int);
+	int i = 0, (*f)(va_list, char *, int), veces = 0, print_len2 = 0;
 	size_t print_len = 0;
 	va_list argum;
 	char buffer[1024];
@@ -16,6 +16,13 @@ int _printf(char *format, ...)
 	va_start(argum, format);
 	while (format && format[i]) /**recorre format mientras exista*/
 	{
+		if (print_len == 1024)
+		{
+			veces++;
+			write(1, buffer, print_len);
+			print_len2 = 1024;
+			print_len = 0;
+		}
 		if (format[i] != '%') /**busca % en format*/
 		{
 			buffer[print_len] = format[i]; /** pasa el string al bufer*/
@@ -47,5 +54,5 @@ int _printf(char *format, ...)
 	}
 	write(1, buffer, print_len);
 	va_end(argum);
-	return (print_len);
+	return (print_len + (print_len2 + veces));
 }
