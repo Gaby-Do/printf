@@ -1,4 +1,4 @@
-##Printf!
+# Printf
 
 ## Introduction to the project
 
