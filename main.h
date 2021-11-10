@@ -18,6 +18,7 @@ typedef struct printgm
 } printgm_t;
 
 int dec_to_oct(va_list argum, char *buff, int print_len);
+int print_un(va_list argum, char *buff, int print_len);
 char rev_str(char *s);
 int dec_to_HEX(va_list argum, char *buff, int print_len);
 int dec_to_x(va_list argum, char *buff, int print_len);

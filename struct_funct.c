@@ -12,6 +12,7 @@ int (*struct_funct(char *s))(va_list, char *, int)
 		{"%", print_porc},
 		{"d", print_d},
 		{"i", print_d},
+		{"u", print_un},
 		{"b", int_to_bi},
 		{"x", dec_to_x},
 		{"X", dec_to_HEX},
