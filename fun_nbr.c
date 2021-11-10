@@ -17,7 +17,7 @@ int print_d(va_list argum, char *buff, int print_len)
 		flag = 1;
 	}
 	num2 = num;
-	while (num > 10)
+	while (num >= 10)
 	{
 		num = num / 10;
 		count++;
