@@ -1,7 +1,9 @@
 #ifndef _HEADER_
 #define _HEADER_
-#define BUFFER (1024)
+#define BUFFER_SIZE 1024
 
+#include <limits.h>
+#include <float.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
