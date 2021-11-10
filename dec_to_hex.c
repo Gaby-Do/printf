@@ -22,7 +22,7 @@ int dec_to_x(va_list argum, char *buff, int print_len)
 		if (x < 10)
 			s[i] = x + 48;
 		else
-			s[i] = x + 55;
+			s[i] = x + 87;
 		n = n / 16;
 		i++;
 	}
@@ -55,7 +55,7 @@ int dec_to_HEX(va_list argum, char *buff, int print_len)
 		if (x < 10)
 			s[i] = x + 48;
 		else
-			s[i] = x + 97;
+			s[i] = x + 55;
 		n = n / 16;
 		i++;
 	}
