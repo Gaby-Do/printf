@@ -10,7 +10,7 @@
 
 int paste(char *buffer, char *s, int print_len)
 {
-	int i = 0, print_len2;
+	int i = 0, print_len2 = 0;
 
 	if (print_len == 1024)
 	{
