@@ -54,5 +54,5 @@ int _printf(char *format, ...)
 	}
 	write(1, buffer, print_len);
 	va_end(argum);
-	return (print_len + (print_len2 + veces));
+	return (print_len + (print_len2 * veces));
 }
