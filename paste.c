@@ -10,13 +10,22 @@
 
 int paste(char *buffer, char *s, int print_len)
 {
-	int i = 0;
+	int i = 0, print_len2 = 0, veces = 0, s_len;
 
+	s_len = _strlen(s);
+	if ((print_len == 1024) || (1024 - print_len < s_len))
+	{
+		veces++;
+		write(1, buffer, print_len);
+		print_len2 = 1024;
+		print_len = 0;
+
+	}
 	while (s && s[i]) /**mientras s exista pega el contenido en el buffer*/
 	{
 		buffer[i] = s[i];
 		print_len += 1;
 		i++;
 	}
-	return (print_len);
+	return (print_len + (print_len2 * veces));
 }
