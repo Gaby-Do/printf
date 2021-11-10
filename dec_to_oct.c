@@ -26,7 +26,7 @@ int dec_to_oct(va_list argum, char *buff, int print_len)
 			n = n / 8;
 			i++;
 		}
-		s[i] = n / 8 + '0';
+		s[i] = n % 8 + '0';
 		i++;
 	}
 	s[i] = '\0';
