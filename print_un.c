@@ -12,7 +12,7 @@ int print_un(va_list argum, char *buff, int print_len)
 	int count = 0, i;
 	char *s;
 
-	while (num > 10)
+	while (num >= 10)
 	{
 		num = num / 10;
 		count++;
