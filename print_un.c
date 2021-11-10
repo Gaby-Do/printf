@@ -8,7 +8,7 @@
 */
 int print_un(va_list argum, char *buff, int print_len)
 {
-	unsigned int num = va_arg(argum, int), num2 = num;
+	unsigned long int num = va_arg(argum, int), num2 = num;
 	int count = 0, i;
 	char *s;
 
