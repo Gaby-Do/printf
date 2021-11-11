@@ -51,7 +51,7 @@ int int_to_bi(va_list argum, char *buff, int print_len)
 	n = va_arg(argum, int);
 	if (n < 0)
 		n = -n;
-	s = malloc(sizeof(char) * 15);
+	s = malloc(sizeof(char) * 35);
 	if (!s)
 		return (1);
 	while (n / 2 > 0)
